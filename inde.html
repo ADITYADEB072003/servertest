@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>API Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #4f46e5;
+      color: white;
+      font-size: 16px;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Fetch Message from Server</h2>
+    <button onclick="getMessage()">Get Message</button>
+    <div id="result"></div>
+  </div>
+ 
+  <script>
+
+  async function getMessage() {
+    try {
+      const response = await fetch("https://servertest-r8w6.onrender.com/api/hello");
+
+      const data = await response.json();
+      document.getElementById("result").innerText = data.message;
+    } catch (err) {
+      document.getElementById("result").innerText = "Error connecting to server";
+      console.error(err);
+    }
+  }
+</script>
+ 
+
+</body>
+</html>
