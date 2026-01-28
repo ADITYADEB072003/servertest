@@ -11,7 +11,7 @@ res.send("server is running on render");
 });
 
 app.get("/api/hello",(req,res)=>{
-res.json({message:"ok"});
+res.json({message:"Hello from server!"});
 });
 
 const PORT=process.env.PORT||3000
